@@ -7,6 +7,8 @@ func Response(data interface{}) interface{} {
 	return map[string]interface{}{"success": true, "data": data}
 }
 
+// TODO: Rethink format of error responses
+
 // ErrorResponse is a helper func to return a single error
 // Ex: 401 {
 //   "error": "Unauthorized"
