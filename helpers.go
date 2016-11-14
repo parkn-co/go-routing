@@ -17,6 +17,8 @@ func ErrorResponse(err interface{}) interface{} {
 	return map[string]interface{}{"error": err}
 }
 
+// TODO: Rethink format of error responses
+
 // FormErrorResponse is a helper func to return errors that will be returned when a form
 // is submitted and has errors with specific fields
 // Ex: SignUp {
