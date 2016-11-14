@@ -1,0 +1,348 @@
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script type='text/javascript'>
+	document.ANALYSIS_DATA = ;
+	document.CALLGRAPH = ;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "."</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+			</div>
+		</div>
+		
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+			
+				
+				<dd><a href="#ErrorResponse">func ErrorResponse(err interface{}) interface{}</a></dd>
+			
+				
+				<dd><a href="#FormErrorResponse">func FormErrorResponse(errs map[string]string) map[string]map[string]string</a></dd>
+			
+				
+				<dd><a href="#InternalError">func InternalError() (int, interface{})</a></dd>
+			
+				
+				<dd><a href="#NotFound">func NotFound() (int, interface{})</a></dd>
+			
+				
+				<dd><a href="#Response">func Response(data interface{}) interface{}</a></dd>
+			
+				
+				<dd><a href="#Unauthorized">func Unauthorized() (int, interface{})</a></dd>
+			
+			
+				
+				<dd><a href="#Handler">type Handler</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewHandler">func NewHandler(handle HandlerFunc) Handler</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Handler.ServeHTTP">func (h Handler) ServeHTTP(res http.ResponseWriter, req *http.Request)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Handler.UseMiddlewares">func (h Handler) UseMiddlewares(middlewares ...HandlerFunc) Handler</a></dd>
+				
+			
+				
+				<dd><a href="#HandlerFunc">type HandlerFunc</a></dd>
+				
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h4>Package files</h4>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="/src/target/handler.go">handler.go</a>
+			
+				<a href="/src/target/helpers.go">helpers.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		<div id="pkg-callgraph" class="toggle" style="display: none">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Internal Call Graph section">Internal call graph ▹</h2>
+		</div> <!-- .expanded -->
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Internal Call Graph section">Internal call graph ▾</h2>
+			<p>
+			  In the call graph viewer below, each node
+			  is a function belonging to this package
+			  and its children are the functions it
+			  calls&mdash;perhaps dynamically.
+			</p>
+			<p>
+			  The root nodes are the entry points of the
+			  package: functions that may be called from
+			  outside the package.
+			  There may be non-exported or anonymous
+			  functions among them if they are called
+			  dynamically from another package.
+			</p>
+			<p>
+			  Click a node to visit that function's source code.
+			  From there you can visit its callers by
+			  clicking its declaring <code>func</code>
+			  token.
+			</p>
+			<p>
+			  Functions may be omitted if they were
+			  determined to be unreachable in the
+			  particular programs or tests that were
+			  analyzed.
+			</p>
+			<!-- Zero means show all package entry points. -->
+			<ul style="margin-left: 0.5in" id="callgraph-0" class="treeview"></ul>
+		</div>
+		</div> <!-- #pkg-callgraph -->
+
+		
+		
+		
+			
+			
+			<h2 id="ErrorResponse">func <a href="/src/target/helpers.go?s=314:361#L4">ErrorResponse</a>
+				<a class="permalink" href="#ErrorResponse">&#xb6;</a>
+			</h2>
+			<pre>func ErrorResponse(err interface{}) interface{}</pre>
+			<p>
+ErrorResponse is a helper func to return a single error
+Ex: 401 {
+</p>
+<pre>&#34;error&#34;: &#34;Unauthorized&#34;
+</pre>
+<p>
+}
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="FormErrorResponse">func <a href="/src/target/helpers.go?s=704:779#L16">FormErrorResponse</a>
+				<a class="permalink" href="#FormErrorResponse">&#xb6;</a>
+			</h2>
+			<pre>func FormErrorResponse(errs map[<a href="/pkg/builtin/#string">string</a>]<a href="/pkg/builtin/#string">string</a>) map[<a href="/pkg/builtin/#string">string</a>]map[<a href="/pkg/builtin/#string">string</a>]<a href="/pkg/builtin/#string">string</a></pre>
+			<p>
+FormErrorResponse is a helper func to return errors that will be returned when a form
+is submitted and has errors with specific fields
+Ex: SignUp {
+</p>
+<pre>&#34;errors&#34;: {
+  &#34;email&#34;: &#34;Email is associated with another account&#34;,
+  &#34;firstName&#34;: &#34;First name is required&#34;,
+}
+</pre>
+<p>
+}
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="InternalError">func <a href="/src/target/helpers.go?s=1063:1102#L26">InternalError</a>
+				<a class="permalink" href="#InternalError">&#xb6;</a>
+			</h2>
+			<pre>func InternalError() (<a href="/pkg/builtin/#int">int</a>, interface{})</pre>
+			<p>
+InternalError is a helper func to return an internal server error
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="NotFound">func <a href="/src/target/helpers.go?s=1248:1282#L31">NotFound</a>
+				<a class="permalink" href="#NotFound">&#xb6;</a>
+			</h2>
+			<pre>func NotFound() (<a href="/pkg/builtin/#int">int</a>, interface{})</pre>
+			<p>
+NotFound is a helper func to return a 404 not found error
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="Response">func <a href="/src/target/helpers.go?s=97:140#L1">Response</a>
+				<a class="permalink" href="#Response">&#xb6;</a>
+			</h2>
+			<pre>func Response(data interface{}) interface{}</pre>
+			<p>
+Response formats a response to keep responses uniform
+</p>
+
+			
+			
+
+		
+			
+			
+			<h2 id="Unauthorized">func <a href="/src/target/helpers.go?s=887:925#L21">Unauthorized</a>
+				<a class="permalink" href="#Unauthorized">&#xb6;</a>
+			</h2>
+			<pre>func Unauthorized() (<a href="/pkg/builtin/#int">int</a>, interface{})</pre>
+			<p>
+Unauthorized is a helper func to return a 401
+</p>
+
+			
+			
+
+		
+		
+			
+			
+			<h2 id="Handler">type <a href="/src/target/handler.go?s=181:255#L3">Handler</a>
+				<a class="permalink" href="#Handler">&#xb6;</a>
+			</h2>
+			<pre>type Handler struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}</pre>
+			<p>
+Handler is used to create handlers for middlewares.
+It implements the http.Handler interface
+</p>
+
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewHandler">func <a href="/src/target/handler.go?s=476:519#L13">NewHandler</a>
+					<a class="permalink" href="#NewHandler">&#xb6;</a>
+				</h3>
+				<pre>func NewHandler(handle <a href="#HandlerFunc">HandlerFunc</a>) <a href="#Handler">Handler</a></pre>
+				<p>
+NewHandler creates a new Handler
+</p>
+
+				
+				
+			
+
+			
+				
+				<h3 id="Handler.ServeHTTP">func (Handler) <a href="/src/target/handler.go?s=573:643#L17">ServeHTTP</a>
+					<a class="permalink" href="#Handler.ServeHTTP">&#xb6;</a>
+				</h3>
+				<pre>func (h <a href="#Handler">Handler</a>) ServeHTTP(res <a href="/pkg/net/http/">http</a>.<a href="/pkg/net/http/#ResponseWriter">ResponseWriter</a>, req *<a href="/pkg/net/http/">http</a>.<a href="/pkg/net/http/#Request">Request</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Handler.UseMiddlewares">func (Handler) <a href="/src/target/handler.go?s=994:1061#L40">UseMiddlewares</a>
+					<a class="permalink" href="#Handler.UseMiddlewares">&#xb6;</a>
+				</h3>
+				<pre>func (h <a href="#Handler">Handler</a>) UseMiddlewares(middlewares ...<a href="#HandlerFunc">HandlerFunc</a>) <a href="#Handler">Handler</a></pre>
+				<p>
+UseMiddlewares applies one or more middlewares for a HandlerFunc
+</p>
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="HandlerFunc">type <a href="/src/target/handler.go?s=362:438#L10">HandlerFunc</a>
+				<a class="permalink" href="#HandlerFunc">&#xb6;</a>
+			</h2>
+			<pre>type HandlerFunc func(<a href="/pkg/net/http/">http</a>.<a href="/pkg/net/http/#ResponseWriter">ResponseWriter</a>, *<a href="/pkg/net/http/">http</a>.<a href="/pkg/net/http/#Request">Request</a>) (<a href="/pkg/builtin/#int">int</a>, interface{})</pre>
+			<p>
+HandlerFunc is what handles the requests.
+It returns the response code and the data we are sending
+</p>
+
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+	
+
+	
+
+
+
+
+
