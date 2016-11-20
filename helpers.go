@@ -1,4 +1,4 @@
-package routerutils
+package routing
 
 import "net/http"
 
@@ -7,8 +7,6 @@ func Response(data interface{}) interface{} {
 	return map[string]interface{}{"success": true, "data": data}
 }
 
-// TODO: Rethink format of error responses
-
 // ErrorResponse is a helper func to return a single error
 // Ex: 401 {
 //   "error": "Unauthorized"
@@ -16,8 +14,6 @@ func Response(data interface{}) interface{} {
 func ErrorResponse(err interface{}) interface{} {
 	return map[string]interface{}{"error": err}
 }
-
-// TODO: Rethink format of error responses
 
 // FormErrorResponse is a helper func to return errors that will be returned when a form
 // is submitted and has errors with specific fields

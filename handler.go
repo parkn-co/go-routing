@@ -1,4 +1,4 @@
-package routerutils
+package routing
 
 import (
 	"encoding/json"
@@ -12,7 +12,7 @@ import (
 // It implements the http.Handler interface
 type Handler struct {
 	handlerFunc HandlerFunc
-	middlewares []middleware
+	middlewares []HandlerFunc
 }
 
 // HandlerFunc is what handles the requests.
